@@ -12,4 +12,13 @@
     .intent {
         @apply flex justify-between items-center hover:shadow-xl p-4 cursor-pointer rounded-lg text-black bg-white max-w-md mx-auto xl:mx-0;
     }
+    .sidebar-button {
+        @apply py-3 px-4 dark:border-t cursor-pointer opacity-80 hover:opacity-100 border-gray-900;
+    }
+    .sidebar-link {
+        @apply text-[13px] font-medium text-blue-500 px-2.5 cursor-pointer hover:underline;
+    }
+    .input-button {
+        @apply flex items-center font-medium cursor-pointer text-sm space-x-2;
+    }
 }

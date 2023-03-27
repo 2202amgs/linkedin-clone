@@ -6,6 +6,7 @@ const nextConfig = {
       'linkedin.com',
       "static.licdn.com",
       "static-exp1.licdn.com",
+      "images.fastcompany.net",
     ],
   },
 }

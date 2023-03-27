@@ -11,7 +11,7 @@ import Image from "next/image";
 import React from "react";
 import { getProviders, signIn } from "next-auth/react";
 
-const Home: React.FC = ({providers}:any): JSX.Element => {
+const home = ({providers}:any): JSX.Element => {
   
   return (
     <div className="space-y-10 relative">
@@ -73,11 +73,11 @@ const Home: React.FC = ({providers}:any): JSX.Element => {
   );
 };
 
-export default Home;
+export default home;
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
   const providers = await getProviders();
-
+  
   return {
     props: {
       providers,
