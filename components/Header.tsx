@@ -4,6 +4,7 @@ import HeaderLink from './HeaderLink'
 import React, { useEffect, useState } from "react";
 import { useTheme } from 'next-themes';
 import { UseThemeProps } from "next-themes/dist/types";
+import { motion } from "framer-motion";
 
 
 const Header = () => {
@@ -14,6 +15,9 @@ const Header = () => {
         setMounted(true);
     }, [])
 
+    const themeChange = () => {
+        utheme.setTheme(utheme.resolvedTheme === 'dark' ? 'light' : 'dark')
+    }
     return (
         <header className='sticky top-0 z-40 bg-white dark:bg-[#1D2226] flex items-center justify-around py-1.5 px-3 focus-within:shadow-lg'>
             {/* left */}
@@ -51,10 +55,19 @@ const Header = () => {
                 <HeaderLink text="Notifications" Icon={Notifications} feed={true} />
                 <HeaderLink text="Me" Icon={Person} feed={true} hidden={true} />
                 <HeaderLink text="Work" Icon={AppsOutlined} feed={true} hidden={true} />
-                <div className="bg-gray-600 flex items-center rounded-full w-12 h-6 flex-shrink cursor-pointer relative">
-                    <span className='absolute left-0.5'>🌔</span>
-                    <span className='absolute right-0.5'>🌞</span>
-                </div>
+                {mounted &&
+                    <div
+                        className={`bg-gray-600 px-0.5 flex items-center rounded-full w-12 h-6 flex-shrink cursor-pointer relative ${utheme.resolvedTheme === 'dark' ? "justify-end" : "justify-start"}`}
+                        onClick={themeChange}
+                    >
+                        <span className='absolute left-0.5'>🌔</span>
+                        <motion.div
+                            className='rounded-full bg-white w-5 h-5 z-40'
+                            transition={{ type: 'spring', stiffness: 70, damping: 30 }}
+                        />
+                        <span className='absolute right-0.5'>🌞</span>
+                    </div>
+                }
             </div>
         </header>
     )
