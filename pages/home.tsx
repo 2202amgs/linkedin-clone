@@ -75,12 +75,12 @@ const home = (): JSX.Element => {
 
 export default home;
 
-// export const getServerSideProps: GetServerSideProps = async (context) => {
-//   const providers = await getProviders();
+export const getServerSideProps: GetServerSideProps = async (context) => {
+  const providers = await getProviders();
   
-//   return {
-//     props: {
-//       providers,
-//     },
-//   };
-// };
+  return {
+    props: {
+      providers,
+    },
+  };
+};
