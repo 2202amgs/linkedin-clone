@@ -12,6 +12,7 @@ export const useSSRPostState = atom({
 });
 
 
-export const getPostState = atom<PostType>({
+export const getPostState = atom<PostType|null>({
     key: 'getPostState',
+    default: null,
 });
