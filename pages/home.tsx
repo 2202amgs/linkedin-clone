@@ -11,7 +11,7 @@ import Image from "next/image";
 import React from "react";
 import { getProviders, signIn } from "next-auth/react";
 
-const home = ({providers}:any): JSX.Element => {
+const home = (): JSX.Element => {
   
   return (
     <div className="space-y-10 relative">
@@ -31,7 +31,7 @@ const home = ({providers}:any): JSX.Element => {
             <HeaderLink text="Learning" Icon={OndemandVideo} />
             <HeaderLink text="Jobs" Icon={BusinessCenter} />
           </div>
-          {
+          {/* {
               Object.values(providers).map((provider:any) => (
                 <div key={provider.name} className="pl-5">
                     <button
@@ -42,7 +42,7 @@ const home = ({providers}:any): JSX.Element => {
                     </button>
                 </div>
               ))
-          }
+          } */}
         </div>
       </header>
       <main className="flex flex-col lg:flex-row items-center mx-auto max-w-screen-lg">
@@ -75,12 +75,12 @@ const home = ({providers}:any): JSX.Element => {
 
 export default home;
 
-export const getServerSideProps: GetServerSideProps = async (context) => {
-  const providers = await getProviders();
+// export const getServerSideProps: GetServerSideProps = async (context) => {
+//   const providers = await getProviders();
   
-  return {
-    props: {
-      providers,
-    },
-  };
-};
+//   return {
+//     props: {
+//       providers,
+//     },
+//   };
+// };
