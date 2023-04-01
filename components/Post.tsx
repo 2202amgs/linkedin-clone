@@ -82,10 +82,12 @@ function Post({ post, modalPost=false }: Data) {
         </div>
       )}
 
-      {post.photoUrl && !modalPost && (
+      {post.photoUrl && post.photoUrl.includes('http') && !modalPost && (
         <Image
           src={post.photoUrl}
           alt=""
+          width={100}
+          height={100}
           className="w-full cursor-pointer"
           onClick={() => {
             setModalOpen(true);

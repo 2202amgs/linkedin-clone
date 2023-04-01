@@ -31,6 +31,7 @@ function Index({session, posts, articles}:Props):JSX.Element{
     }
   });
   
+  
   return (
     <div className='bg-[#F3F2EF} dark:bg-black dark:text-white h-screen overflow-y-scroll md:space-y-6'>
       <Head>
@@ -54,7 +55,7 @@ function Index({session, posts, articles}:Props):JSX.Element{
   )
 }
 
-export async function getServerSideProps(context:any) {
+export async function getServerSideProps(context:any) {  
   const session:Session|null = await getSession(context);
   
   if (!session) {
@@ -68,6 +69,7 @@ export async function getServerSideProps(context:any) {
 
   const {db} = await connectToDatabase();
   const posts:[PostType] = await db.collection('posts').find().toArray();
+  
 
   const res = await fetch(
     `https://newsapi.org/v2/top-headlines?country=eg&apiKey=${process.env.NEWS_API_KEY}`

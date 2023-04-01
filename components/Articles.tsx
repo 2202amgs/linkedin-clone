@@ -40,13 +40,13 @@ function Articles({ articles }:Data) {
       {/* Ads */}
       <div className="bg-white dark:bg-[#1D2226] w-11/12 h-64 px-2.5 rounded-lg sticky top-20 border border-gray-300 dark:border-none">
         <div className="relative w-full h-full">
-          <Image
+          {/* <Image
             alt=""
             src="https://rb.gy/kbfeaa"
             layout="fill"
             objectFit="contain"
             priority
-          />
+          /> */}
         </div>
       </div>
     </div>
