@@ -5,6 +5,7 @@ import React, { useEffect, useState } from "react";
 import { useTheme } from 'next-themes';
 import { UseThemeProps } from "next-themes/dist/types";
 import { motion } from "framer-motion";
+import { Avatar } from '@mui/material';
 
 
 const Header = () => {
@@ -53,7 +54,7 @@ const Header = () => {
                 <HeaderLink text="Jobs" Icon={BusinessCenter} feed={true} />
                 <HeaderLink text="Messageing" Icon={Chat} feed={true} />
                 <HeaderLink text="Notifications" Icon={Notifications} feed={true} />
-                <HeaderLink text="Me" Icon={Person} feed={true} hidden={true} />
+                <HeaderLink text="Me" Icon={Avatar} feed={true} hidden={true} avatar={true} />
                 <HeaderLink text="Work" Icon={AppsOutlined} feed={true} hidden={true} />
                 {mounted &&
                     <div

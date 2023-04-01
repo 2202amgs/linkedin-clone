@@ -103,11 +103,11 @@ function Modal({ handleClose, type }: Props): JSX.Element {
                     <motion.img
                         alt=""
                         onDoubleClick={handleClose}
-                        // src={post.photoUrl}
+                        src={post.photoUrl}
                         className="object-contain max-h-[80vh] w-full max-w-3xl rounded-l-lg"
                     />
                     <div className="w-full md:w-3/5 bg-white dark:bg-[#1D2226] rounded-r-lg">
-                        {/* <Post post={post} modalPost /> */}
+                        <Post post={post} modalPost />
                     </div>
                 </motion.div>
             )}
