@@ -42,7 +42,7 @@ function Index({session, posts, articles}:Props):JSX.Element{
       <main className='flex justify-center gap-x-5 px-4 sm:px-12'>
         <div className="flex flex-col sm:flex-row gap-x-5">
           <Sidebar />
-          <Feed posts={posts} />
+          {/* <Feed posts={posts} /> */}
           <Articles articles={articles} />
         </div>
         <AnimatePresence>
