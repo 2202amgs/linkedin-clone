@@ -7,6 +7,7 @@ const nextConfig = {
       "static.licdn.com",
       "static-exp1.licdn.com",
       "images.fastcompany.net",
+      'rb.gy'
     ],
   },
 }
