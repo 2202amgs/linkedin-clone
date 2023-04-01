@@ -16,23 +16,24 @@ function Feed({posts}:Data) {
 
 
   useEffect(() => {    
+    const getPosts = ()=>{
+      fetch('/api/posts',{
+        method: "GET",
+        headers: {"Content-Type": "application/json"},
+      }).then((res)=>{
+        res.json().then(data => {
+          setRealTimePosts(data);
+          setHandlePost(false);
+          setUseSSRPost(false);
+        })
+      }).catch((error)=>{
+        console.error(error);
+      });
+    }
+
     getPosts();
   }, [handlePost])
 
-  function getPosts() {
-    fetch('/api/posts',{
-      method: "GET",
-      headers: {"Content-Type": "application/json"},
-    }).then((res)=>{
-      res.json().then(data => {
-        setRealTimePosts(data);
-        setHandlePost(false);
-        setUseSSRPost(false);
-      })
-    }).catch((error)=>{
-      console.error(error);
-    });
-  }
 
   return (
     <div className='space-y-6 pb-24 max-wlg'>
