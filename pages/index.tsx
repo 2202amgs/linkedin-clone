@@ -1,4 +1,5 @@
 import { modalState, modalTypeState } from '@/atoms/modalAtom';
+import Articles from '@/components/Articles';
 import Feed from '@/components/Feed';
 import Header from '@/components/Header';
 import Modal from '@/components/Modal';
@@ -16,8 +17,9 @@ import { useRecoilState } from 'recoil';
 interface Props {
   session:Session|null,
   posts:[PostType],
+  articles: [any]
 }
-function Index({session, posts}:Props):JSX.Element{
+function Index({session, posts, articles}:Props):JSX.Element{
   const router = useRouter();
   const [modalOpen, setModalOpen] = useRecoilState(modalState);
   const [modalType, setModalType] = useRecoilState(modalTypeState);
@@ -40,6 +42,7 @@ function Index({session, posts}:Props):JSX.Element{
         <div className="flex flex-col sm:flex-row gap-x-5">
           <Sidebar />
           <Feed posts={posts} />
+          <Articles articles={articles} />
         </div>
         <AnimatePresence>
           {modalOpen&& (
@@ -65,10 +68,15 @@ export async function getServerSideProps(context:any) {
 
   const {db} = await connectToDatabase();
   const posts:[PostType] = await db.collection('posts').find().toArray();
+
+  const res = await fetch(
+    `https://newsapi.org/v2/top-headlines?country=eg&apiKey=${process.env.NEWS_API_KEY}`
+  ).then((res) => res.json());
   
   return {
     props: {
       session,
+      articles: res.articles,
       posts: posts.map<PostType>((post)=>{
         return {
           _id: post._id.toString(),
