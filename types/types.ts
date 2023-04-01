@@ -1,4 +1,4 @@
-export interface PostType {
+export type PostType = {
     _id: string;
     input: string;
     photoUrl: string;
